@@ -34,7 +34,8 @@ public class ProductRepository {
 		listOfProducts.add(notebook);
 		listOfProducts.add(tablet);
 		// listOfProducts.add(상품명);
-        
+    }
+    
 public Product getProductById(String productId) {
 		Product productById = null;
 
@@ -47,10 +48,9 @@ public Product getProductById(String productId) {
 		}
 		return productById;
 	}
-}
-	}
 
 	public ArrayList<Product> getAllProducts() {
 		return listOfProducts;
 	}
 }
+
