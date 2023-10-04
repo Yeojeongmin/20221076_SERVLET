@@ -24,20 +24,23 @@
 					Product product = listOfProducts.get(i);
 			%>
 			<div class="col-md-4">
-				<h3><%=product.getPname()%></h3>
-				<p><%=product.getDescription()%>
-				<p><%=product.getUnitPrice()%>원
-			</div>
-			<%
-				}
-			%>
-		</div>
-		<hr>
+                    <div class="card bg-dark text-white">
+                        <img src="image/<%=product.getProductId()%>.jpg" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h5 class="card-title">그래픽 카드 이미지 샘플</h5>
+                        <p class="card-text">출처 : 구글 검색</p>
+                        </div>
+                        </div>
+	<h3><%=product.getPname()%></h3> <!닌텐도 스위치>
+	<p><%=product.getDescription()%> <!닌텐도 스위치 라이트>
+	<p><%=product.getUnitPrice()%>원 <!OLED>
+       <p><a href="product_detail.jsp?id=<%=product.getProductId()%>" class="btn btn-secondary" role="button"> 상품 상세 정보 &raquo;</a>
 	</div>
-			<h3>
-				<%=tagline%>
-			</h3>
-		</div>
+        </div></div>
+	<%
+		} // 반복문 끝
+	%>
+        </div>
 		<hr>
 
 <div class ="card bg-dark text-white">
