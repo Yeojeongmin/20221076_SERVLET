@@ -26,6 +26,7 @@
             <a class="navbar-brand" href="./index.jsp">login</a>
             <a class="navbar-brand" href="./index.jsp">join</a>
             <a class="navbar-brand" href="./index.jsp">Purchase</a>
+            <a class="navbar-brand" href="Admin/index_ad.jsp">관리자모드</a>
 		</div>
 	</div>
 </nav>

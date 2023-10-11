@@ -2,9 +2,16 @@ package dao;
 import java.util.ArrayList;
 import dto.Product;
 
-public class ProductRepository {
+public class ProductRepository 
+{
 
-	private ArrayList<Product> listOfProducts = new ArrayList<Product>(); 
+	private ArrayList<Product> listOfProducts = new ArrayList<Product>();
+       private static ProductRepository instance = new ProductRepository();
+
+   public static ProductRepository getInstance(){
+	return instance;
+   }
+
 
 	public ProductRepository() {
 		Product phone = new Product("P1234", "iPhone 6s", 800000);
@@ -52,5 +59,11 @@ public Product getProductById(String productId) {
 	public ArrayList<Product> getAllProducts() {
 		return listOfProducts;
 	}
+    
+   public void addProduct(Product product) {
+	listOfProducts.add(product);
+   }
+
 }
+
 
