@@ -17,7 +17,6 @@
             <a class="navbar-brand" href="/admin/index_ad.jsp">회원가입</a>
             <a class="navbar-brand" href="../index.jsp">고객센터</a>	
 			<a class="navbar-brand" href="/admin/index_ad.jsp">관리자모드</a>
-
 		</div>
 	</div>
 	<div class="jumbotron">
@@ -47,6 +46,12 @@
 			</div>
 			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
 		</form>
+            
+            <!-- 비밀번호 찾기 버튼 추가 -->
+<form action="/your-web-app-context/recover_password.jsp" method="get">
+    <input type="submit" value="Forgot Password?">
+</form>
+
 	</div>
 </div>
 </body>
