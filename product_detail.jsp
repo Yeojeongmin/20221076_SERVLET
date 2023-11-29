@@ -37,10 +37,10 @@
 				<h4><%=product.getUnitPrice()%>원</h4>
 
                 <div class="card bg-dark text-white">
-                    <img src="image/<%=product.getProductId()%>.jpg" class="card-img" alt="...">
+                    <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
                     <div class="card-img-overlay">
-                    <h5 class="card-title">상품 이미지 원본</h5>
-                    <p class="card-text">출처 : 구글 검색</p>
+                        <h5 class="card-title">상품 이미지 원본</h5>
+                        <p class="card-text">출처 : 구글 검색</p>
                     </div>
                 </div>
 	<p><a href="#" class="btn btn-info"> 상품 주문 &raquo;</a> <a href="index.jsp" class="btn btn-secondary"> 상품 목록 &raquo;</a>
