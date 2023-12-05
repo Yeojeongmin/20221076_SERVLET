@@ -7,10 +7,35 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-	<jsp:include page="../top_menu.jsp" />
+    <div class="dropdown">
+  		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		카테고리
+  		</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">시즌1</a>
+            <a class="dropdown-item" href="#">시즌2</a>
+            <a class="dropdown-item" href="#">시즌3</a>
+            <a class="dropdown-item" href="#">시즌4</a>
+
+        </div>
+	</div>
+	<div>
+        <img src="image\Lotte_logo.jpg" class="img-fluid" alt="main_image" width="250" height="100" >
+    </div>
+    
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="./index.jsp">홈페이지</a>
+            <a class="navbar-brand" href="./index.jsp">로그인</a>
+            <a class="navbar-brand" href="./index.jsp">회원가입</a>
+            <a class="navbar-brand" href="./index.jsp">고객센터</a>	
+			<a class="navbar-brand" href="admin/index_ad.jsp">관리자모드</a>
+
+		</div>
+	</div>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품 등록 페이지 접근 - 로그인이 필요합니다.</h1>
+			<h1 class="display-3">관리자 모드 접근 - 로그인이 필요합니다.</h1>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -24,12 +49,12 @@
 					out.println("</div>");
 				}
 			%> 
-            <form class="form-signin" action="j_security_check" method="post">
+		<form class="form-signin" action="j_security_check" method="post">
 			<div class="form-group">
 				<label for="inputUserName" class="sr-only">User Name</label> 
 				<input type="text" class="form-control" placeholder="ID" name='j_username' required autofocus>
 			</div>
-			<div class="form-group">
+			<div class= "form-group">
 				<label for="inputPassword" class="sr-only">Password</label> 
 				<input  type="password" class="form-control" placeholder="Password" name='j_password' required>
 			</div>
@@ -39,4 +64,3 @@
 </div>
 </body>
 </html>
-            
