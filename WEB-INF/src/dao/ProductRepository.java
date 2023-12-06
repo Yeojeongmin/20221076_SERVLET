@@ -69,13 +69,13 @@ public class ProductRepository{
         melon_pepero.setCondition("New"); // 신상품, 중고품, 재생품
     	melon_pepero.setFilename("P1248.jpg?v=1"); // 가져올 파일 이름
         
-       	Product chocolate_cookie_pepero = new Product("P1249", "초코 쿠키 빼빼로", 1600); // 생성자를 통해 상품 객체 생성
-    	chocolate_cookie_pepero.setDescription("이번에는 초코와 쿠키가 만났다!"); // 상품 설명
-    	chocolate_cookie_pepero.setCategory("cookieSnack"); // 상품 분류
+       	Product chocolate_cookie_pepero = new Product("P1251", "동숲 숄더 파우치", 36000); // 생성자를 통해 상품 객체 생성
+    	chocolate_cookie_pepero.setDescription("닌텐도 전용 가방이 동술과 콜라보를 진행했다!"); // 상품 설명
+    	chocolate_cookie_pepero.setCategory("bag"); // 상품 분류
         chocolate_cookie_pepero.setManufacturer("롯데스위트"); // 제조사
         chocolate_cookie_pepero.setUnitsInStock(170); // 재고수
         chocolate_cookie_pepero.setCondition("New"); // 신상품, 중고품, 재생품
-    	chocolate_cookie_pepero.setFilename("P1249.jfif"); // 가져올 파일 이름
+    	chocolate_cookie_pepero.setFilename("P1251.jpg?v=1"); // 가져올 파일 이름
 
         Product strawberry_pepero = new Product("P1250", "콩돌 밤돌 브라운 타올", 2100); // 생성자를 통해 상품 객체 생성
     	strawberry_pepero.setDescription("가볍게 갖고다니기 귀엽고 실용적인!"); // 상품 설명
