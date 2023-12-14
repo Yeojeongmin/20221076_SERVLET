@@ -59,7 +59,10 @@
 				<input  type="password" class="form-control" placeholder="Password" name='j_password' required>
 			</div>
 			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
-		</form>
+            </form>
+            <form class="form-signin" action="member/member_join_process.jsp" method="post">
+    <button class="btn btn btn-lg btn-success btn-block" type="submit">회원가입</button>
+            </form>
 	</div>
 </div>
 </body>
