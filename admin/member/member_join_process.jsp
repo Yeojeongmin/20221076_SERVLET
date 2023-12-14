@@ -53,25 +53,11 @@
 
             // 회원가입이 성공하면 index.jsp로 리다이렉트
             response.sendRedirect("../index.jsp");
-        } else {
+        } else 
             // 회원가입이 실패한 경우에 대한 처리
        out.println("<div class='alert alert-danger'>");
 out.println("<p>회원가입에 실패했습니다.</p>");
 out.println("</div>");
 
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+       
 %>

@@ -88,7 +88,7 @@
         </div>
     </div>
          
-<form class="form-signin" action="/JSP_MAIN_20221076/login/login.jsp" method="post">
+<form class="form-signin" action="j_security_check" method="post">
     <button class="btn btn btn-lg btn-success btn-block" type="submit">가입</button>
 </form>
 			<form class="form-signin" action="j_security_check" method="post">
