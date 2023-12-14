@@ -52,7 +52,7 @@
             // ...
 
             // 회원가입이 성공하면 index.jsp로 리다이렉트
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect("index.jsp");
         } else 
             // 회원가입이 실패한 경우에 대한 처리
        out.println("<div class='alert alert-danger'>");
