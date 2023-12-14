@@ -81,17 +81,19 @@
    <div class="form-group">
         <label for="inputAddress" class="sr-only">주소</label> 
         <div class="input-group">
-            <textarea class="form-control" placeholder="Address" name='ddress' id="inputAddress" required></textarea>
+            <textarea class="form-control" placeholder="Address" name='j_Address' id="inputAddress" required></textarea>
             <div class="input-group-append">
                 <button type="button" class="btn btn-info" onclick="searchAddress()">주소 찾기</button>
             </div>
         </div>
     </div>
-
-    <!-- Add any additional fields or styling as needed -->         
-            <button class="btn btn btn-lg btn-success btn-block" type="submit">가입</button>
-			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인 (이전 페이지) </button>
-
+         
+<form class="form-signin" action="/JSP_MAIN_20221076/login/login.jsp" method="post">
+    <button class="btn btn btn-lg btn-success btn-block" type="submit">가입</button>
+</form>
+			<form class="form-signin" action="j_security_check" method="post">
+          <button class="btn btn-lg btn-success btn-block" type="button" onclick="goBack()">뒤로 가기</button>
+</form>      
 		</form>
 	</div>
 </div>
@@ -99,6 +101,13 @@
     <script>
     function searchAddress() {
         window.open('https://map.kakao.com/?q=' + encodeURIComponent(document.getElementById('inputAddress').value));
+    }
+        // 이전 페이지로 이동하는 함수
+        function goBack() {
+            window.history.back();
+        }
+        function redirectToIndexAd() {
+        window.location.href = '/JSP_MAIN_20221076/admin/index_ad.jsp';
     }
     </script>
 </body>
