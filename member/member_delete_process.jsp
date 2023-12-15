@@ -1,3 +1,81 @@
-<%@ page contentType = "text/html;charset=utf-8" %>
-<%	
-%>
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원 삭제 처리</title>
+    <script>
+        function showConfirmation() {
+            alert("회원 정보가 성공적으로 삭제되었습니다!");
+            window.location.href = 'member_update.jsp';
+        }
+        
+        function showFailure() {
+            alert("회원 정보 삭제에 실패했습니다.");
+            window.location.href = 'member_update.jsp';
+        }
+    </script>
+</head>
+<body>
+    <%
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // JDBC 연결 설정
+            Class.forName("com.mysql.jdbc.Driver");
+            String jdbcUrl = "jdbc:mysql://localhost/ggouppang_20221076";
+            String dbUser = "root";
+            String dbPassword = "0324";
+
+            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+
+            // 폼에서 값을 가져오기
+            String j_ID = request.getParameter("j_ID");
+            String updatedPassword = request.getParameter("j_Password");
+            String updatedName = request.getParameter("j_Name");
+            String updatedGender = request.getParameter("j_Gender");
+            String updatedBirth = request.getParameter("j_Birth");
+            String updatedEmail = request.getParameter("j_Email");
+            String updatedPhone = request.getParameter("j_Phone");
+            String updatedAddress = request.getParameter("j_Address");
+            
+            // 삭제할 SQL 쿼리
+            String query = "DELETE FROM member WHERE  j_Password=?, j_Name=?, j_Gender=?, j_Birth=?, j_Email=?, j_Phone=?, j_Address=? WHERE j_ID=?";
+            pstmt = conn.prepareStatement(query);
+
+            pstmt.setString(1, j_ID);
+
+            // 삭제 쿼리 실행
+            int rowsAffected = pstmt.executeUpdate();
+
+            // 삭제가 성공적인지 확인
+            if (rowsAffected > 0) {
+    %>
+                <script>
+                    // Show confirmation alert
+                    showConfirmation();
+                </script>
+    <%
+            } else {
+    %> 
+                <script>
+                    // Show failure alert
+                    showFailure();
+                </script>
+    <%
+            }
+        } catch (Exception e) {
+            out.println("Exception: " + e.getMessage()); // 에러 메시지 출력
+            e.printStackTrace(); // 콘솔에 스택 트레이스 출력
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    %>
+</body>
+</html>

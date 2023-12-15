@@ -1,54 +1,80 @@
-<%@ page contentType="text/html; charset=utf-8" import="java.sql.*" %>
-<%@ page import="java.io.*,java.util.*" %>
-<%@ include file="../db/db_conn.jsp" %>
-
-<%
-    // 이미 선언된 변수들을 사용
-    String memberId = request.getParameter("j_ID");
-    String memberPassword = request.getParameter("j_Password");
-    String memberName = request.getParameter("j_Name");
-    String memberGender = request.getParameter("j_Gender");
-    String memberBirth = request.getParameter("j_Birth");
-    String memberEmail = request.getParameter("j_Email");
-    String memberPhone = request.getParameter("j_Phone");
-    String memberAddress = request.getParameter("j_Address");
-
-    try {
-        String sql = "UPDATE member SET j_Password=?, j_Name=?, j_Gender=?, j_Birth=?, j_Email=?, j_Phone=?, j_Address=? WHERE j_ID=?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, memberPassword);
-        pstmt.setString(2, memberName);
-        pstmt.setString(3, memberGender);
-        pstmt.setString(4, memberBirth);
-        pstmt.setString(5, memberEmail);
-        pstmt.setString(6, memberPhone);
-        pstmt.setString(7, memberAddress);
-        pstmt.setString(8, memberId);
-
-        int rowsAffected = pstmt.executeUpdate();
-
-        if (rowsAffected > 0) {
-            // 수정이 성공한 경우
-            out.println("<div class='alert alert-success'>");
-            out.println("<p>회원 정보가 성공적으로 수정되었습니다.</p>");
-            out.println("</div>");
-        } else {
-            // 수정이 실패한 경우
-            out.println("<div class='alert alert-danger'>");
-            out.println("<p>회원 정보 수정에 실패했습니다.</p>");
-            out.println("</div>");
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원 수정 처리</title>
+    <script>
+        function showConfirmation() {
+            alert("회원 정보가 성공적으로 수정되었습니다!");
+            window.location.href = 'member_update.jsp';
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        // 리소스 해제
-        if (pstmt != null) {
+    </script>
+</head>
+<body>
+    <%
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // JDBC 연결 설정
+              Class.forName("com.mysql.jdbc.Driver");
+            String jdbcUrl = "jdbc:mysql://localhost/ggouppang_20221076";
+            String dbUser = "root";
+            String dbPassword = "0324";
+
+            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+
+            // 폼에서 값을 가져오기
+            String j_ID = request.getParameter("j_ID");
+            String updatedPassword = request.getParameter("j_Password");
+            String updatedName = request.getParameter("j_Name");
+            String updatedGender = request.getParameter("j_Gender");
+            String updatedBirth = request.getParameter("j_Birth");
+            String updatedEmail = request.getParameter("j_Email");
+            String updatedPhone = request.getParameter("j_Phone");
+            String updatedAddress = request.getParameter("j_Address");
+
+            // 업데이트할 SQL 쿼리
+            String query = "UPDATE member SET j_Password=?, j_Name=?, j_Gender=?, j_Birth=?, j_Email=?, j_Phone=?, j_Address=? WHERE j_ID=?";
+            pstmt = conn.prepareStatement(query);
+
+            // 업데이트할 값 설정
+            pstmt.setString(1, updatedPassword);
+            pstmt.setString(2, updatedName);
+            pstmt.setString(3, updatedGender);
+            pstmt.setString(4, updatedBirth);
+            pstmt.setString(5, updatedEmail);
+            pstmt.setString(6, updatedPhone);
+            pstmt.setString(7, updatedAddress);
+            pstmt.setString(8, j_ID);
+            // 업데이트 쿼리 실행
+            int rowsAffected = pstmt.executeUpdate();
+
+            // 업데이트가 성공적인지 확인
+            if (rowsAffected > 0) {
+    %>
+                <script>
+                    // Show confirmation alert
+                    showConfirmation();
+                </script>
+    <%
+            } else {
+    %>
+                <p>회원 정보 수정에 실패했습니다.</p>
+    <%
+            }
+        } catch (Exception e) {
+            out.println("Exception: " + e.getMessage());
+        } finally {
             try {
-                pstmt.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-    }
-%>
-
+    %>
+</body>
+</html>

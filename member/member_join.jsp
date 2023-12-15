@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -40,12 +41,12 @@
 
      <div class="container" align="center">
         <div class="col-md-4 col-md-offset-4">
-            <h3 class="form-signin-heading">Please sign Up</h3>
+            <h3 class="form-signin-heading"></h3>
 
             <form class="form-signin" action="member_join_process.jsp" method="post">
 	<div class="container" align="center">
 		<div class="col-md-4 col-md-offset-4">
-			<h3 class="form-signin-heading">Please sign Up</h3>
+			<h3 class="form-signin-heading"></h3>
 			<%
 				String error = request.getParameter("error");
 				if (error != null) {
@@ -93,7 +94,7 @@
         </div>
     </div>
          
-<form class="form-signin" action="member_join_process.jsp" method="post">
+<form class="form-signin" action="j_security_check" method="post">
 <button class="btn btn-lg btn-success btn-block" type="submit">가입</button>
 </form>
 			<form class="form-signin" action="j_security_check" method="post">

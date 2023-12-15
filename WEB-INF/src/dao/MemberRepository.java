@@ -1,74 +1,19 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import dto.Member;
-import util.DBUtil;
 
 public class MemberRepository {
     private ArrayList<Member> listOfMembers = new ArrayList<>();
     private static MemberRepository instance = new MemberRepository();
 
-    public static MemberRepository getInstance() {
-        return instance;
-    }
-
-    private MemberRepository() {
-        // 초기화 코드는 비워둡니다.
-    }
-
-    public ArrayList<Member> getAllMembers() {
-        return listOfMembers;
-    }
-
-    public Member getMemberById(String memberId) {
-        Member memberById = null;
-
-        for (int i = 0; i < listOfMembers.size(); i++) {
-            Member member = listOfMembers.get(i);
-            if (member != null && member.getMemberId() != null && member.getMemberId().equals(memberId)) {
-                memberById = member;
-                break;
-            }
-        }
-
-        return memberById;
-    }
-
-    public void addMember(Member member) {
-        listOfMembers.add(member);
-    }
-
-    // 회원가입 로직을 추가합니다.
-    public boolean registerMember(String memberId, String password, String name, String gender, String birth, String email, String phone, String address) {
-        // 이미 존재하는 아이디인지 확인
-        for (Member member : listOfMembers) {
-            if (member.getMemberId().equals(memberId)) {
-                return false; // 아이디 중복
-            }
-        }
-
-        // 존재하지 않는 경우 회원 추가
-        Member newMember = new Member();
-        newMember.setMemberId(memberId);
-        newMember.setPassword(password);
-        newMember.setName(name);
-        newMember.setGender(gender); // 추가
-        newMember.setBirth(birth); // 추가
-        newMember.setEmail(email);
-        newMember.setPhone(phone); // 추가
-        newMember.setAddress(address); // 추가
-        // regist_day는 현재 날짜 등록으로 가정하고 처리
-        newMember.setRegist_day("2023-12-18"); // 수정 필요
-        listOfMembers.add(newMember);
-
-        // 여기서 데이터베이스에 저장하는 로직을 추가해야 함
-        saveToDatabase(newMember);
-
-        return true; // 회원가입 성공
-    }
+    // ... (이하 생략)
 
     // 데이터베이스에 회원 정보 저장
     private void saveToDatabase(Member member) {
@@ -76,7 +21,17 @@ public class MemberRepository {
         PreparedStatement pstmt = null;
 
         try {
-            conn = DBUtil.getConnection();
+            // JDBC 드라이버 로딩 (드라이버 클래스는 사용하는 DBMS에 따라 달라질 수 있습니다.)
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 데이터베이스 연결
+            String url = "jdbc:mysql://localhost:3306/ggouppang_20221076"; // 데이터베이스 URL
+            String user = "root"; // 데이터베이스 사용자명
+            String password = "0324"; // 데이터베이스 비밀번호
+            conn = DriverManager.getConnection(url, user, password);
+
+            // 여기에 데이터베이스 연결 코드 추가
+
             String sql = "INSERT INTO member (j_ID, j_Password, j_Name, j_Gender, j_Birth, j_Email, j_Phone, j_Address, regist_day) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, member.getMemberId());
@@ -89,10 +44,16 @@ public class MemberRepository {
             pstmt.setString(8, member.getAddress());
             pstmt.setString(9, member.getRegist_day());
             pstmt.executeUpdate();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
-            DBUtil.close(conn, pstmt, null);
+            try {
+                // 연결과 관련된 리소스 해제
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
