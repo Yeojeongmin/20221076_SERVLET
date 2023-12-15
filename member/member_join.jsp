@@ -104,16 +104,15 @@
 </div>
                 </form></div></div>
     
-    <script>
-    function searchAddress() {
-        window.open('https://map.kakao.com/?q=' + encodeURIComponent(document.getElementById('inputAddress').value));
-    }
+   <script>
+        function searchAddress() {
+            window.open('https://map.kakao.com/?q=' + encodeURIComponent(document.getElementById('inputAddress').value));
+        }
+        
         // 이전 페이지로 이동하는 함수
         function goBack() {
             window.history.back();
         }
-        function redirectToIndexAd() {
-        window.location.href = '/JSP_MAIN_20221076/admin/index_ad.jsp';
-    }
     </script>
-            </body></html>
+</body>
+</html>
