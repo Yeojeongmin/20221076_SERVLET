@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +7,6 @@
     <script>
         function showConfirmation() {
             alert("회원 정보가 성공적으로 삭제되었습니다!");
-            window.location.href = 'member_update.jsp';
-        }
-        
-        function showFailure() {
-            alert("회원 정보 삭제에 실패했습니다.");
             window.location.href = 'member_update.jsp';
         }
     </script>
@@ -32,16 +27,9 @@
 
             // 폼에서 값을 가져오기
             String j_ID = request.getParameter("j_ID");
-            String updatedPassword = request.getParameter("j_Password");
-            String updatedName = request.getParameter("j_Name");
-            String updatedGender = request.getParameter("j_Gender");
-            String updatedBirth = request.getParameter("j_Birth");
-            String updatedEmail = request.getParameter("j_Email");
-            String updatedPhone = request.getParameter("j_Phone");
-            String updatedAddress = request.getParameter("j_Address");
-            
+
             // 삭제할 SQL 쿼리
-            String query = "DELETE FROM member WHERE  j_Password=?, j_Name=?, j_Gender=?, j_Birth=?, j_Email=?, j_Phone=?, j_Address=? WHERE j_ID=?";
+            String query = "DELETE FROM member WHERE j_ID=?";
             pstmt = conn.prepareStatement(query);
 
             pstmt.setString(1, j_ID);
@@ -58,16 +46,18 @@
                 </script>
     <%
             } else {
-    %> 
+    %>
                 <script>
                     // Show failure alert
-                    showFailure();
+                    alert("회원 정보 삭제에 실패했습니다.");
+                    window.location.href = 'member_update.jsp';
                 </script>
     <%
             }
         } catch (Exception e) {
-            out.println("Exception: " + e.getMessage()); // 에러 메시지 출력
-            e.printStackTrace(); // 콘솔에 스택 트레이스 출력
+            // 에러 메시지 출력
+            out.println("Exception: " + e.getMessage());
+            e.printStackTrace();
         } finally {
             try {
                 if (pstmt != null) pstmt.close();
