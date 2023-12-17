@@ -11,6 +11,10 @@
   padding: 10px; /* 선택적으로 여백(padding)을 추가할 수 있습니다. */
   font-weight: bold; /* 굵은 텍스트를 적용 */
 }
+     .dropdown-menu {
+         font-weight: bold; /* 굵은 텍스트를 적용 */
+         color:white; /* 변경하고자 하는 색상으로 조절하세요 */
+     }
     .dropdown-item:hover {
         font-weight: bold; /* 굵은 텍스트를 적용 */
         color: #757575; /* 변경하고자 하는 색상으로 조절하세요 */
@@ -18,19 +22,22 @@
 </style>
     </head>
 <body>
-    <nav class="navbar navbar-expand navbar-white" style="background-color: #A1887F;">
+     <nav class="navbar navbar-expand navbar-white" style="background-color: #A1887F;">
 	<div class="dropdown">
-<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8D6E63; font-weight: bold; border: 0;">
-    		카테고리
-</button>
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #A1887F;">
-    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">cloth</a>
-    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">shoes</a>
-    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">bag</a>
-    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">towel</a>
-    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">Doll</a>
-</div>
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" 
+        aria-haspopup="true" aria-expanded="false"  style="background-color: #8D6E63; font-weight: bold; border: 0;">
+        카테고리
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #A1887F;  font-weight: bold; color: white;">
+        <a class="dropdown-item" href="#" onclick="setCategory('cloth')">cloth</a>
+        <a class="dropdown-item" href="#" onclick="setCategory('shoes')">shoes</a>
+        <a class="dropdown-item" href="#" onclick="setCategory('bag')">bag</a>
+        <a class="dropdown-item" href="#" onclick="setCategory('towel')">towel</a>
+        <a class="dropdown-item" href="#" onclick="setCategory('Doll')">Doll</a>
+    </div>
+
+
+
 	</div>
     
     <div>
@@ -39,15 +46,19 @@
     
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="../index.jsp">홈페이지</a>
-            <a class="navbar-brand" href="../index.jsp">로그인</a>
-            <a class="navbar-brand" href="../index.jsp">회원가입</a>
-            <a class="navbar-brand" href="../index.jsp">고객센터</a>	
+			<a class="navbar-brand" href="../index.jsp">상품목록(기본 홈)</a>
+            <a class="navbar-brand" href="login_user.jsp">로그인</a>
+            <a class="navbar-brand" href="../member/member_join.jsp">회원가입</a>
+            <a class="navbar-brand" href="../BoardListAction.do?pageNum=1">게시판(고객센터)</a>
 			<a class="navbar-brand" href="../admin/index_ad.jsp">관리자모드</a>
+            <a class="navbar-brand" href="../cart/product_cart.jsp" style="margin-left: 360px;">
+            <i class="fas fa-shopping-cart fa-flip-horizontal"></i>
+            </a>
+
 
 		</div>
 	</div>
-    </nav>
+</nav>
     <br>
 	<div class="jumbotron">
 		<div class="container">
