@@ -5,11 +5,17 @@
 <head>
     <title>회원 삭제 처리</title>
     <script>
-        function showConfirmation() {
-            alert("회원 정보가 성공적으로 삭제되었습니다!");
-            window.location.href = 'member_update.jsp';
-        }
-    </script>
+    function showConfirmation() {
+        alert("회원 정보가 성공적으로 삭제되었습니다!");
+        window.location.href = 'member_update.jsp';
+    }
+
+    function showFailure() {
+        alert("회원 정보 삭제에 실패했습니다.");
+        window.location.href = 'member_update.jsp';
+    }
+</script>
+
 </head>
 <body>
     <%
@@ -49,15 +55,16 @@
     %>
                 <script>
                     // Show failure alert
-                    alert("회원 정보 삭제에 실패했습니다.");
-                    window.location.href = 'member_update.jsp';
+                    showFailure();
                 </script>
     <%
             }
         } catch (Exception e) {
-            // 에러 메시지 출력
-            out.println("Exception: " + e.getMessage());
-            e.printStackTrace();
+    // 에러 메시지 출력
+    out.println("Exception: " + e.getMessage());
+    e.printStackTrace();
+    // 실패 알림에 에러 메시지 추가
+    out.println("<script>showFailure()</script>");
         } finally {
             try {
                 if (pstmt != null) pstmt.close();

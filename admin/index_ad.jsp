@@ -12,12 +12,24 @@
 <script>
 	window.open("../popup/admin_popup.jsp", "popup", "width=365, height = 250, left = 0, top=0")
 </script>
+     <style>
+.navbar-brand {
+  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  padding: 10px; /* 선택적으로 여백(padding)을 추가할 수 있습니다. */
+  font-weight: bold; /* 굵은 텍스트를 적용 */
+}
+    .dropdown-item:hover {
+        font-weight: bold; /* 굵은 텍스트를 적용 */
+        color: #757575; /* 변경하고자 하는 색상으로 조절하세요 */
+    }
+</style>
 
 <title>Welcome</title>
 </head>
 <body>
     <%@ include file="top_banner_ad.jsp"%>
     <%@ include file="top_menu_ad.jsp"%>
+    <br>
     <%@ include file="body_main_ad.jsp"%>
     <%@ include file="footer_ad.jsp"%>
     

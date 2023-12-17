@@ -19,7 +19,7 @@
             border: 0px solid #8E928F;
         }
         body, table, th, td, input {
-            margin-left: -10px;
+            margin-left: 0px;
         }
         .submit-button {
             margin-top: -10px;
@@ -51,6 +51,7 @@
         %>
 
         <!-- 테이블 시작 -->
+        <form action="member_update_process.jsp" method="post">
         <table class="table">
             <thead>
                 <tr>
@@ -84,18 +85,15 @@
                     <td><input type="text" name="j_Email" value="<%= rs.getString("j_Email") %>" required></td>
                     <td><input type="text" name="j_Phone" value="<%= rs.getString("j_Phone") %>" required></td>
                     <td><input type="text" name="j_Address" value="<%= rs.getString("j_Address") %>" required></td>
-                    <!-- 수정 폼 추가 -->
                     <td>
-                        <form action="member_update_process.jsp" method="post">
                             <button type="submit" class="btn btn-success" style="width: 70px; height: 35px; text-align: center; font-weight: bold;">수정</button>
-                        </form>
                     </td>
-                    <!-- 삭제 폼 추가 -->
-                    <td>
-                        <form id="deleteForm_<%= j_ID %>" action="member_delete_process.jsp" method="post">
-                            <button type="button" class="btn btn-success" style="width: 70px; height: 35px; text-align: center; font-weight: bold;" onclick="deleteRow('<%= j_ID %>')">삭제</button>
-                            <input type="hidden" name="j_ID" value="<%= j_ID %>">
-                        </form>
+  
+                     <td>
+                       <button type="button" class="btn btn-success delete-button" style="width: 70px; height: 35px; text-align: center; font-weight: bold;" onclick="deleteRow('회원의_ID')">삭제</button>
+                         <form id="deleteForm_회원의_ID" action="member_delete_process.jsp" method="post">
+                             <input type="hidden" name="j_ID" value="회원의_ID">
+                         </form>
                     </td>
                 </tr>
                 <%
@@ -115,13 +113,14 @@
                 %>
             </tbody>
         </table>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        </form>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <!-- 네비게이션 바 추가 -->
         <nav class="navbar navbar-expand navbar-white" style="background-color: #5AE787; margin-top: 20px; margin-left: -200px; height: 90px; width: 1500px;">
-            <div>
-                <img src="image\Lotte_logo.png?v=1" class="img-fluid" alt="main_image" width="100" height="70" >
-            </div>
+        <div>
+    <img src="image\Lotte_logo.png?v=2" class="img-fluid" alt="main_image" width="200" height="70">
+</div>
+
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="../admin/index_ad.jsp">홈페이지</a>
@@ -138,15 +137,24 @@
         </nav>
     </div>
 
-    <!-- 삭제 버튼 클릭 시 실행될 스크립트 추가 -->
-    <script>
-        function deleteRow(j_ID) {
-            // 삭제 여부 확인
-            if (confirm("정말로 삭제하시겠습니까?")) {
-                // form 전송
-                document.getElementById("deleteForm_" + j_ID).submit();
-            }
+       <script>
+     function deleteRow(j_ID) {
+    // 삭제 여부 확인
+    if (confirm("정말로 삭제하시겠습니까?")) {
+        // form 전송
+        var form = document.getElementById("deleteForm_" + j_ID);
+
+        if (form) {
+            form.submit();
+            // 추가: 페이지 이동
+            window.location.href = 'member_delete_process.jsp';
+        } else {
+            console.error("Element not found with ID: deleteForm_" + j_ID);
+            alert("Element not found with ID: deleteForm_" + j_ID);
         }
-    </script>
+    }
+}
+ </script>
+
 </body>
 </html>

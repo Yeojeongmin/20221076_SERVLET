@@ -1,21 +1,24 @@
 <%-- 메뉴 작업 완료 --%>
 <%@ page contentType="text/html; charset=utf-8"%>
-<nav class="navbar navbar-expand  navbar-white bg-white">
+<nav class="navbar navbar-expand navbar-white" style="background-color: #A1887F;">
 	<div class="dropdown">
-  		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8D6E63; font-weight: bold; border: 0;">
     		카테고리
-  		</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">시즌1빼빼로</a>
-            <a class="dropdown-item" href="#">시즌2빼빼로</a>
-            <a class="dropdown-item" href="#">시즌3빼빼로</a>
-            <a class="dropdown-item" href="#">시즌4빼빼로</a>
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #A1887F;">
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">cloth</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">shoes</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">bag</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">towel</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">Doll</a>
+</div>
 
-        </div>
+
 	</div>
     
     <div>
-        <img src="image\Lotte_logo.jpg?v=1" class="img-fluid" alt="main_image" width="250" height="100" >
+        <img src="image\Lotte_logo.png?v=1" class="img-fluid" alt="main_image" width="250" height="100" >
     </div>
     
 	<div class="container">

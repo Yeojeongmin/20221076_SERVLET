@@ -5,34 +5,50 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
+ <style>
+.navbar-brand {
+  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  padding: 10px; /* 선택적으로 여백(padding)을 추가할 수 있습니다. */
+  font-weight: bold; /* 굵은 텍스트를 적용 */
+}
+    .dropdown-item:hover {
+        font-weight: bold; /* 굵은 텍스트를 적용 */
+        color: #757575; /* 변경하고자 하는 색상으로 조절하세요 */
+    }
+</style>
+    </head>
 <body>
-    <div class="dropdown">
-  		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <nav class="navbar navbar-expand navbar-white" style="background-color: #A1887F;">
+	<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8D6E63; font-weight: bold; border: 0;">
     		카테고리
-  		</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">시즌1</a>
-            <a class="dropdown-item" href="#">시즌2</a>
-            <a class="dropdown-item" href="#">시즌3</a>
-            <a class="dropdown-item" href="#">시즌4</a>
-
-        </div>
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #A1887F;">
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">cloth</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">shoes</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">bag</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">towel</a>
+    <a class="dropdown-item" href="#" style="font-weight: bold; color: #FFFFFF;">Doll</a>
+</div>
 	</div>
-	<div>
-        <img src="image\Lotte_logo.jpg" class="img-fluid" alt="main_image" width="250" height="100" >
+    
+    <div>
+        <img src="image\Lotte_logo.png?v=1" class="img-fluid" alt="main_image" width="250" height="100" >
     </div>
     
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="./index.jsp">홈페이지</a>
-            <a class="navbar-brand" href="./index.jsp">로그인</a>
-            <a class="navbar-brand" href="./index.jsp">회원가입</a>
-            <a class="navbar-brand" href="./index.jsp">고객센터</a>	
-			<a class="navbar-brand" href="admin/index_ad.jsp">관리자모드</a>
+			<a class="navbar-brand" href="../index.jsp">홈페이지</a>
+            <a class="navbar-brand" href="../index.jsp">로그인</a>
+            <a class="navbar-brand" href="../index.jsp">회원가입</a>
+            <a class="navbar-brand" href="../index.jsp">고객센터</a>	
+			<a class="navbar-brand" href="../admin/index_ad.jsp">관리자모드</a>
 
 		</div>
 	</div>
+    </nav>
+    <br>
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">관리자 모드 접근 - 로그인이 필요합니다.</h1>
@@ -59,7 +75,7 @@
 				<input  type="password" class="form-control" placeholder="Password" name='j_password' required>
 			</div>
 			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
-
+            
             </form>
 	</div>
 </div>
