@@ -11,7 +11,7 @@
     }
 
     function showFailure() {
-        alert("회원 정보 삭제에 실패했습니다.");
+        alert("회원 삭제를 실패하였습니다. 나중에 다시 시도하십시오.");
         window.location.href = 'member_update.jsp';
     }
 </script>

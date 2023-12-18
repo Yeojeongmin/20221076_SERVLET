@@ -17,7 +17,7 @@
   </head>
 	
 	<body>
-	<section style="background-color:#D2B48C;">
+	<section style="background-color:#A1887F;">
   <div class="container py-5">
     <div class="row">
       <div class="col">
@@ -26,9 +26,9 @@
 																				background-size: cover; background-position: center; padding-bottom: 5%;">
     <ol class="breadcrumb mb-0">
       <li class="nav-item" style="display: flex; gap: 10px; margin-left:0px;">
-<button class="btn btn-sm" type="button" onclick="redirectToIndex()" style="background-color: #964B00; color: #fff;">HOME</button>
+<button class="btn btn-sm" type="button" onclick="redirectToIndex()" style="background-color: #8D6E63; color: #fff;">HOME</button>
 <button class="btn btn-sm" type="submit" onclick="location.href='https://tablog.neocities.org/keywordposition'" 
-		style="background-color: #964B00; color: #fff;">MAP</button>
+		style="background-color: #8D6E63; color: #fff;">MAP</button>
     </ol>
 </nav>
       </div>
@@ -41,7 +41,7 @@
 
 
       <div class="card-body text-center">
-<button class="profile-upload-btn" onclick="document.getElementById('fileInput').click()" style="background-color: #964B00; color: #fff; font-weight: bold; border: none;">Image Upload</button>
+<button class="profile-upload-btn" onclick="document.getElementById('fileInput').click()" style="background-color: #8D6E63; color: #fff; font-weight: bold; border: none;">Image Upload</button>
 
    
         <!-- 파일 업로드 input -->
@@ -80,9 +80,9 @@
         <div class="d-flex justify-content-center mb-2">
           <li class="nav-item" style="display: flex; gap: 10px; margin-left: auto;">
   <button class="btn btn-sm" type="submit" onclick="location.href='https://www.instagram.com/?hl=ko'" 
-		style="background-color: #964B00; color: #fff;">Folow</button>
+		style="background-color: #8D6E63; color: #fff;">Folow</button>
 			  <button class="btn btn-sm" type="submit" onclick="location.href=' https://www.instagram.com/direct/inbox/?hl=ko'" 
-		style="background-color: #964B00; color: #fff;">Message</button>
+		style="background-color: #8D6E63; color: #fff;">Message</button>
 			  <br>
 			  <br><audio src="Media/msc.mp3" controls="controls"></audio>
         </div>

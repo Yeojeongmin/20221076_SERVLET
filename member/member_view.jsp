@@ -80,7 +80,7 @@
                 %>
             </tbody>
         </table>
-       <br><br><br>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <nav class="navbar navbar-expand navbar-white" style="background-color: #5AE787; margin-top: 20px; margin-left: -200px; height: 90px; width: 1500px;">
    <div>
     <img src="image\Lotte_logo.png?v=2" class="img-fluid" alt="main_image" width="200" height="70">
