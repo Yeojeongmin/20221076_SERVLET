@@ -148,7 +148,7 @@
         <div class="input-group">
             <textarea class="form-control" placeholder="Address" name='j_Address' id="inputAddress" required></textarea>
             <div class="input-group-append">
-                <button type="button" class="btn btn-info" onclick="searchAddress()">주소 찾기</button>
+                <button type="button" class="btn btn-info" onclick="location.href='https://tablog.neocities.org/keywordposition'">주소 찾기</button>
             </div>
         </div>
     </div>
