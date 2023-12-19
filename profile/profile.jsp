@@ -7,14 +7,25 @@
 <title> 프로필 </title>
 		<meta name="keywords" content="computer">
 		<base herf="https://g--jrcmf.run.goorm.site/">
-		<script type="text/javascript" src="../js/map.js" defer></script>
-		<script type="text/javascript" src="js/basic_test.js" defer></script>
-		<script type="text/javascript" src="js/data_type.js" defer></script>
-		<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=834045f77b930959ae9974d6704fda08" autoload=false></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=834045f77b930959ae9974d6704fda08"></script>
+        <script type="text/javascript" src="../js/map.js" defer></script>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  </head>
+        <style>
+        #Map {
+    height: 300px; /* 원하는 높이로 조절하세요 */
+}
+             #imageContainer {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        #imageContainer img {
+            width: 300px;
+            height: 220px;
+        }
+        </style>
+    
+    </head>
 	
 	<body>
 	<section style="background-color:#A1887F;">
@@ -117,10 +128,12 @@
         <p class="mb-0">@Nintendo</p>
 		  <img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=https://url.kr/g7mslx"
 	   alt="이미지" class="img-fluid">
-		  <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-    <div id="Map" style="width: 350px; height: 200px; margin: 0 auto;"></div>
-</li>
-
+	  <br>
+          <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+          <div id="imageContainer">
+        <img src="../img/IMG_6605.jpg" alt="이미지">
+    </div>
+        </li>
     </ul>
   </div>
 </div>
@@ -254,18 +267,6 @@ function redirectToIndex() {
             }
         }
     }
-          var mapContainer = document.getElementById('Map'),
-        mapOption = {
-            center: new kakao.maps.LatLng(37.5665, 126.9780), // 서울의 좌표로 변경
-            level: 5 // 원하는 줌 레벨로 변경
-        };
-
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-    var mapTypeControl = new kakao.maps.MapTypeControl();
-    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-
-    var zoomControl = new kakao.maps.ZoomControl();
-    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+ 
 </script>
     </body></html>
