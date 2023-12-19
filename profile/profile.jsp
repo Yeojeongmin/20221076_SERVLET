@@ -60,7 +60,7 @@
     
         <!-- 업로드한 이미지 미리보기 -->
         <div id="imageContainer">
-            <div id="imagePreview"></div>
+            <div id="imagePreview">용산 아이파크몰</div>
         </div>
         <%
     Connection conn = null;
